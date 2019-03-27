@@ -44,6 +44,9 @@ class App {
         formsDiv.appendChild(textInput);
         formsDiv.appendChild(button);
         this.container.appendChild(formsDiv);
+
+        if (this.focusedElement === 'numberOfUsers') numberInput.focus();
+        if (this.focusedElement === 'genderOfUsers') textInput.focus();   
     }
 
     renderContent() {
@@ -113,7 +116,6 @@ class App {
                 this.render()
             }
         )
-        if (this.focusedElement === propertyName) input.focus();
         return input
     }
 

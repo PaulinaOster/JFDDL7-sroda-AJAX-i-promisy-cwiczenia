@@ -9,8 +9,17 @@ class App {
         this.isLoading = false;
         this.isError = false;
 
+        // this.classNamePrefix = classNamePrefix || 'user-app-';
+
         this.render();
     }
+
+    // addClassNamePrefix(className) {
+    //     return className
+    //         .split(' ')
+    //         .map(className => this.classNamePrefix + '-' + className)
+    //         .join(' ')
+    // }
 
     loadUsers() {
         if (this.isLoading) return;
@@ -37,6 +46,8 @@ class App {
 
     renderForm() {
         const formsDiv = document.createElement('div');
+        formsDiv.className = 'container form-container'
+
         const numberInput = this.renderInput('number', 'numberOfUsers');
         const textInput = this.renderInput('text', 'genderOfUsers');
         const button = this.renderButton('Załaduj', this.loadUsers.bind(this)) // funkcja onClick jest przekazana do funkcji bez kontekstu zatem trzeba dodać kontekst poprzez .bind(this)
@@ -46,7 +57,7 @@ class App {
         this.container.appendChild(formsDiv);
 
         if (this.focusedElement === 'numberOfUsers') numberInput.focus();
-        if (this.focusedElement === 'genderOfUsers') textInput.focus();   
+        if (this.focusedElement === 'genderOfUsers') textInput.focus();
     }
 
     renderContent() {
@@ -68,9 +79,12 @@ class App {
             nameAndEmailDiv.appendChild(nameDiv);
             nameAndEmailDiv.appendChild(emailDiv);
 
-            userDiv.style.display = 'flex';
-            nameAndEmailDiv.style.display = 'flex';
-            nameAndEmailDiv.style.flexDirection = 'column'
+            userDiv.className = 'user-container';
+            avatarDiv.className = 'user-avatar-div';
+            avatar.className = 'user-avatar';
+            nameDiv.className = 'user-name';
+            emailDiv.className = 'user-email';
+            nameAndEmailDiv.className = 'user-name-and-email';
 
             return userDiv
         }
@@ -100,6 +114,7 @@ class App {
         }
 
         const div = document.createElement('div');
+        div.className = 'container content-container';
         div.appendChild(getContent());
         this.container.appendChild(div);
     }
@@ -107,6 +122,7 @@ class App {
     renderInput(type, propertyName) {
         const input = document.createElement('input');
         input.setAttribute('type', type);
+        input.className = 'input';
         input.value = this[propertyName];
         input.addEventListener(
             'input',
@@ -122,6 +138,7 @@ class App {
     renderButton(label, onClick) {
         const button = document.createElement('button');
         button.innerText = label;
+        button.className = 'button';
         button.addEventListener(
             'click',
             onClick

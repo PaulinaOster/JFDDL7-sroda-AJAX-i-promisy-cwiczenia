@@ -1,0 +1,62 @@
+button,input {
+    font-family: sans-serif;
+}
+.container {
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid rgba(118,156,98,1);
+    border-radius: 10px;
+    width: 75%;
+    text-align: center;
+    font-family: sans-serif;
+    box-shadow: 3px 3px 27px 1px rgba(118,156,98,1);
+}
+.form-container {
+    text-align: center;
+}
+.content-container {
+    display: flex;
+}
+.button {
+    margin: 10px;
+    padding: 0px 10px;
+    height: 25px;
+    border-radius: 2px;
+    background: none;
+    border: 1px solid rgba(118,156,98,1);
+    transition: .3s ease-in-out;
+}
+.button:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+.input {
+    margin: 10px;
+    padding-left: 5px;
+    height: 21px;
+    border-radius: 2px;
+    background: none;
+    border: 1px solid rgba(118,156,98,1);
+}
+.user-container {
+    display: flex;
+    margin: 20px 0px;
+}
+.user-name-and-email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+.user-avatar-div {
+    margin: 0 20px;
+}
+.user-avatar {
+    border-radius: 50%;
+}
+.user-name {
+    text-transform: capitalize;
+}
+.user-email {
+    color: darkgreen;
+}
